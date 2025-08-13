@@ -2,7 +2,7 @@
 
 https://docs.google.com/document/d/1OE0q5KpovtUkoVSMrhFAEWI-kvYtRBmEDkYFpBXHEtI/edit?tab=t.0
 
-# Toy Store API – TypeScript (Express + SQLite)
+# API – TypeScript (Express + SQLite)
 
 - Auth JWT
 - Clientes com formato de listagem customizado

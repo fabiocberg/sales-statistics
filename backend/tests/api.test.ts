@@ -6,7 +6,7 @@ process.env.NODE_ENV = 'test';
 
 import app from '../src/app';
 
-describe('Toy Store API (TS)', () => {
+describe('API (TS)', () => {
   let token: string;
 
   beforeAll(async () => {

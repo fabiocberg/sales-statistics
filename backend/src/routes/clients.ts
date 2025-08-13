@@ -10,21 +10,28 @@ const toInt = (v: unknown, def: number) => {
 
 // POST /clients
 router.post('/', (req: Request, res: Response) => {
+  console.log('POST clients');
   const body = (req.body || {}) as { name?: string; email?: string; phone?: string; birthdate?: string };
+  console.log('POST clients body: ', body);
   const cName = body.name;
   const cEmail = body.email;
   const cPhone = body.phone;
   const cBirth = body.birthdate;
   if (!cName) return res.status(400).json({ error: 'Nome é obrigatório' });
   try {
+    console.log('POST clients 1');
     const stmt = db.prepare(`
       INSERT INTO clients (name, email, phone, birthdate, updated_at)
       VALUES (?, ?, ?, ?, datetime('now'))
     `);
+    console.log('POST clients 2');
     const info = stmt.run(cName, cEmail ? cEmail.toLowerCase() : null, cPhone || null, cBirth || null);
+    console.log('POST clients 3');
     const client = db.prepare('SELECT * FROM clients WHERE id = ?').get(info.lastInsertRowid);
+    console.log('POST clients 4');
     return res.status(201).json(client);
   } catch (e: any) {
+    console.log('add client error: ', e);
     if (e.code === 'SQLITE_CONSTRAINT_UNIQUE') {
       return res.status(409).json({ error: 'Email de cliente já cadastrado' });
     }

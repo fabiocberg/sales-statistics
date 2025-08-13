@@ -45,6 +45,21 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_sales_client ON sales(client_id);
 `);
 
+// --- Lightweight migrations (idempotent) ---
+try {
+  const cols = db.prepare("PRAGMA table_info(clients)").all().map((r: any) => r.name);
+  if (!cols.includes('birthdate')) {
+    db.prepare("ALTER TABLE clients ADD COLUMN birthdate TEXT").run();
+    console.log("[migrate] clients.birthdate adicionado");
+  }
+  if (!cols.includes('updated_at')) {
+    db.prepare("ALTER TABLE clients ADD COLUMN updated_at TEXT DEFAULT (datetime('now'))").run();
+    console.log("[migrate] clients.updated_at adicionado");
+  }
+} catch (e) {
+  console.error("[migrate] Falha ao rodar migrações de tabela clients:", e);
+}
+
 // Seed default admin user (idempotente)
 try {
   const adminEmail = 'admin@avantsoft.com';
