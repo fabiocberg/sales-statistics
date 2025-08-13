@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": [
+      "node",
+      "jest"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "tests",
+    "**/*.test.ts",
+    "jest.config.js"
+  ]
+}
