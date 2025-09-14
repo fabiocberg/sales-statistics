@@ -1,130 +1,99 @@
 # Sales Statistics
 
-Aplicação **fullstack** desenvolvida como desafio técnico.  
-O sistema permite **gerenciar clientes, registrar vendas e visualizar estatísticas** em tempo real.  
+Aplicação **fullstack** desenvolvida como desafio técnico, focada em gestão de clientes, registro de vendas e análise de estatísticas comerciais. O sistema foi desenhado visando escalabilidade, separação de responsabilidades e usabilidade em dispositivos móveis.
 
-É composto por:  
-- **Backend:** API REST em **Node.js + TypeScript** com autenticação JWT e banco de dados relacional.  
-- **Frontend (mobile):** Aplicativo **React Native** para interação com o usuário.
+## Visão Geral
 
----
-
-## 🚀 Funcionalidades
-
-- Autenticação de usuários com JWT.  
-- Cadastro e listagem de clientes.  
-- Registro de vendas associadas a clientes.  
-- Visualização de estatísticas agregadas de vendas.  
-- Interface mobile intuitiva em React Native.  
+- **Backend:** API REST em **Node.js** + **TypeScript**, com autenticação JWT, arquitetura modular e testes automatizados.
+- **Frontend (mobile):** Aplicativo **React Native**, focado em UX, integração com backend e autenticação segura.
 
 ---
 
-## 🛠️ Arquitetura
+## 🚀 Funcionalidades Principais
+
+- Autenticação de usuários (JWT)
+- Cadastro, listagem e gerenciamento de clientes
+- Registro de vendas associadas a clientes
+- Visualização de estatísticas agregadas (dashboard mobile)
+- Interface mobile moderna e intuitiva
+
+---
+
+## 🛠️ Arquitetura do Projeto
 
 ```
 sales-statistics/
-│── backend/         # API REST em Node.js + TypeScript
+├── backend/      # API REST Node.js + TypeScript
 │   ├── src/
-│   │   ├── app.ts        # Configuração do app
-│   │   ├── server.ts     # Inicialização do servidor
-│   │   ├── db.ts         # Conexão com o banco
-│   │   ├── routes/       # Rotas (auth, clients, sales, stats)
-│   │   └── middleware/   # Middlewares (ex: autenticação)
-│   └── tests/            # Testes com Jest
+│   │   ├── app.ts           # Configuração principal do app
+│   │   ├── server.ts        # Inicialização do servidor
+│   │   ├── db.ts            # Conexão com banco de dados
+│   │   ├── routes/          # Endpoints: auth, clients, sales, stats
+│   │   └── middleware/      # Middlewares (ex: autenticação)
+│   └── tests/               # Testes automatizados (Jest)
 │
-│── frontend/       # Aplicativo React Native
+├── frontend/     # App React Native
 │   ├── src/
-│   │   ├── screens/      # Telas (Login, Clients, Stats)
-│   │   ├── navigation/   # Tabs de navegação
-│   │   ├── auth/         # Contexto de autenticação
-│   │   └── api.ts        # Integração com backend
+│   │   ├── screens/         # Telas (Login, Clients, Stats)
+│   │   ├── navigation/      # Navegação/tab bar
+│   │   ├── auth/            # Contexto/autenticação
+│   │   └── api.ts           # Integração com backend
 │
-└── README.md       # Documentação unificada
+└── README.md     # Documentação centralizada
 ```
 
 ---
 
-## 📦 Tecnologias Utilizadas
+## 🧑‍💻 Instruções de Execução
 
 ### Backend
-- Node.js + TypeScript  
-- Express  
-- JWT (autenticação)  
-- Banco de dados (ex: PostgreSQL ou SQLite configurável em `.env`)  
-- Jest (testes automatizados)  
 
-### Frontend
-- React Native  
-- Context API para autenticação  
-- Navegação com Tabs  
-- Axios (requisições HTTP)  
-
----
-
-## ▶️ Como Rodar o Projeto
-
-### 1. Clonar o repositório
-```bash
-git clone https://github.com/seuusuario/sales-statistics.git
-cd sales-statistics
-```
-
----
-
-### 2. Rodar o Backend
-
-1. Vá até a pasta `backend`:
-   ```bash
-   cd backend
-   ```
-
+1. Entre em `backend/`
 2. Instale as dependências:
    ```bash
    npm install
    ```
-
-3. Configure variáveis de ambiente:
-   ```bash
-   cp .env.example .env
-   ```
-
-4. Rode a API:
+3. Configure variáveis de ambiente (exemplo em `.env.example`)
+4. Execute a API:
    ```bash
    npm run dev
    ```
-   A API estará disponível em: [http://localhost:4000](http://localhost:4000)
 
-5. Rodar testes:
-   ```bash
-   npm test
-   ```
+### Frontend (mobile)
 
----
-
-### 3. Rodar o Frontend (Mobile)
-
-1. Vá até a pasta `frontend`:
-   ```bash
-   cd frontend
-   ```
-
+1. Entre em `frontend/`
 2. Instale as dependências:
    ```bash
    npm install
    ```
-
-3. Inicie o app:
+3. Execute o app:
    ```bash
-   npm start
+   npx expo start
    ```
-
-4. Use o **Expo Go** no celular ou emulador para visualizar o app.  
+   > Certifique-se de ter o Expo CLI instalado (`npm install -g expo-cli`).
 
 ---
 
-## 📌 Próximos Passos
+## 📝 Testes
 
-- Melhorar design da interface mobile.  
-- Adicionar relatórios gráficos de vendas.  
-- Deploy do backend em nuvem (Heroku, Render, AWS).  
-- Implementar CI/CD com GitHub Actions.  
+- Backend: `npm run test` (Jest)
+- Frontend: detalhar se houver testes implementados
+
+---
+
+## 📚 Tecnologias
+
+- Node.js, TypeScript, Express, JWT, Jest, SQLite/PostgreSQL (adaptável)
+- React Native, Expo, Context API
+
+---
+
+## 🤝 Contribuição
+
+Siga o padrão de branch `feature/`, `fix/` etc. e sempre abra um Pull Request descrevendo as mudanças.
+
+---
+
+## 📄 Licença
+
+Defina aqui a licença do projeto, se aplicável.
